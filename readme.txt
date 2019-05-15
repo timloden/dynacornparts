@@ -29,7 +29,7 @@ Dynacorn Parts includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
 
-= 1.0 - May 12 2015 =
+= 0.0 - May 15 2015 =
 * Initial release
 
 == Credits ==
