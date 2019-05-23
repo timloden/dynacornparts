@@ -1,187 +1,520 @@
 "use strict";
 
-/**
- * File customizer.js.
- *
- * Theme Customizer enhancements for a better user experience.
- *
- * Contains handlers to make Theme Customizer preview reload changes asynchronously.
- */
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 (function ($) {
-  // Site title and description.
-  wp.customize('blogname', function (value) {
-    value.bind(function (to) {
-      $('.site-title a').text(to);
+  "use strict";
+
+  var _$$owlCarousel, _$$on$owlCarousel, _$$on$owlCarousel2, _$$on$owlCarousel3, _$$on$owlCarousel4, _$$owlCarousel2, _$$owlCarousel3, _$$owlCarousel4, _$$owlCarousel5, _$$on$owlCarousel5, _$$owlCarousel6, _$$owlCarousel7, _$$owlCarousel8;
+
+  new WOW().init();
+  /*---background image---*/
+
+  function dataBackgroundImage() {
+    $('[data-bgimg]').each(function () {
+      var bgImgUrl = $(this).data('bgimg');
+      $(this).css({
+        'background-image': 'url(' + bgImgUrl + ')' // + meaning concat
+
+      });
     });
+  }
+
+  $(window).on('load', function () {
+    dataBackgroundImage();
   });
-  wp.customize('blogdescription', function (value) {
-    value.bind(function (to) {
-      $('.site-description').text(to);
-    });
-  }); // Header text color.
+  /*---stickey menu---*/
 
-  wp.customize('header_textcolor', function (value) {
-    value.bind(function (to) {
-      if ('blank' === to) {
-        $('.site-title, .site-description').css({
-          'clip': 'rect(1px, 1px, 1px, 1px)',
-          'position': 'absolute'
-        });
-      } else {
-        $('.site-title, .site-description').css({
-          'clip': 'auto',
-          'position': 'relative'
-        });
-        $('.site-title a, .site-description').css({
-          'color': to
-        });
-      }
-    });
-  });
-})(jQuery);
-"use strict";
+  $(window).on('scroll', function () {
+    var scroll = $(window).scrollTop();
 
-/**
- * File navigation.js.
- *
- * Handles toggling the navigation menu for small screens and enables TAB key
- * navigation support for dropdown menus.
- */
-(function () {
-  var container, button, menu, links, i, len;
-  container = document.getElementById('site-navigation');
-
-  if (!container) {
-    return;
-  }
-
-  button = container.getElementsByTagName('button')[0];
-
-  if ('undefined' === typeof button) {
-    return;
-  }
-
-  menu = container.getElementsByTagName('ul')[0]; // Hide menu toggle button if menu is empty and return early.
-
-  if ('undefined' === typeof menu) {
-    button.style.display = 'none';
-    return;
-  }
-
-  menu.setAttribute('aria-expanded', 'false');
-
-  if (-1 === menu.className.indexOf('nav-menu')) {
-    menu.className += ' nav-menu';
-  }
-
-  button.onclick = function () {
-    if (-1 !== container.className.indexOf('toggled')) {
-      container.className = container.className.replace(' toggled', '');
-      button.setAttribute('aria-expanded', 'false');
-      menu.setAttribute('aria-expanded', 'false');
+    if (scroll < 100) {
+      $(".sticky-header").removeClass("sticky");
     } else {
-      container.className += ' toggled';
-      button.setAttribute('aria-expanded', 'true');
-      menu.setAttribute('aria-expanded', 'true');
+      $(".sticky-header").addClass("sticky");
     }
-  }; // Get all the link elements within the menu.
+  });
+  /*---jQuery MeanMenu---*/
 
+  $('.mobile-menu nav').meanmenu({
+    meanScreenWidth: "9901",
+    meanMenuContainer: ".mobile-menu",
+    onePage: true
+  });
+  /*---slider activation---*/
 
-  links = menu.getElementsByTagName('a'); // Each time a menu link is focused or blurred, toggle focus.
+  $('.slider_area').owlCarousel((_$$owlCarousel = {
+    animateOut: 'fadeOut',
+    autoplay: true,
+    loop: true,
+    nav: false
+  }, _defineProperty(_$$owlCarousel, "autoplay", false), _defineProperty(_$$owlCarousel, "autoplayTimeout", 8000), _defineProperty(_$$owlCarousel, "items", 1), _defineProperty(_$$owlCarousel, "dots", true), _$$owlCarousel));
+  /*---product column5 activation---*/
 
-  for (i = 0, len = links.length; i < len; i++) {
-    links[i].addEventListener('focus', toggleFocus, true);
-    links[i].addEventListener('blur', toggleFocus, true);
-  }
-  /**
-   * Sets or removes .focus class on an element.
-   */
+  $('.product_column5').on('changed.owl.carousel initialized.owl.carousel', function (event) {
+    $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last');
+  }).owlCarousel((_$$on$owlCarousel = {
+    autoplay: true,
+    loop: true,
+    nav: true
+  }, _defineProperty(_$$on$owlCarousel, "autoplay", false), _defineProperty(_$$on$owlCarousel, "autoplayTimeout", 8000), _defineProperty(_$$on$owlCarousel, "items", 5), _defineProperty(_$$on$owlCarousel, "margin", 20), _defineProperty(_$$on$owlCarousel, "dots", false), _defineProperty(_$$on$owlCarousel, "navText", ['<i class="ion-ios-arrow-thin-left"></i>', '<i class="ion-ios-arrow-thin-right"></i>']), _defineProperty(_$$on$owlCarousel, "responsiveClass", true), _defineProperty(_$$on$owlCarousel, "responsive", {
+    0: {
+      items: 1
+    },
+    576: {
+      items: 2
+    },
+    768: {
+      items: 3
+    },
+    992: {
+      items: 4
+    },
+    1200: {
+      items: 5
+    }
+  }), _$$on$owlCarousel));
+  /*---product column4 activation---*/
 
+  $('.product_column4').on('changed.owl.carousel initialized.owl.carousel', function (event) {
+    $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last');
+  }).owlCarousel((_$$on$owlCarousel2 = {
+    autoplay: true,
+    loop: true,
+    nav: true
+  }, _defineProperty(_$$on$owlCarousel2, "autoplay", false), _defineProperty(_$$on$owlCarousel2, "autoplayTimeout", 8000), _defineProperty(_$$on$owlCarousel2, "items", 4), _defineProperty(_$$on$owlCarousel2, "margin", 20), _defineProperty(_$$on$owlCarousel2, "dots", false), _defineProperty(_$$on$owlCarousel2, "navText", ['<i class="ion-ios-arrow-thin-left"></i>', '<i class="ion-ios-arrow-thin-right"></i>']), _defineProperty(_$$on$owlCarousel2, "responsiveClass", true), _defineProperty(_$$on$owlCarousel2, "responsive", {
+    0: {
+      items: 1
+    },
+    576: {
+      items: 2
+    },
+    768: {
+      items: 3
+    },
+    992: {
+      items: 4
+    }
+  }), _$$on$owlCarousel2));
+  /*---product column4 activation---*/
 
-  function toggleFocus() {
-    var self = this; // Move up through the ancestors of the current link until we hit .nav-menu.
+  $('.product_sidebar_column4').on('changed.owl.carousel initialized.owl.carousel', function (event) {
+    $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last');
+  }).owlCarousel((_$$on$owlCarousel3 = {
+    autoplay: true,
+    loop: true,
+    nav: true
+  }, _defineProperty(_$$on$owlCarousel3, "autoplay", false), _defineProperty(_$$on$owlCarousel3, "autoplayTimeout", 8000), _defineProperty(_$$on$owlCarousel3, "items", 4), _defineProperty(_$$on$owlCarousel3, "margin", 20), _defineProperty(_$$on$owlCarousel3, "dots", false), _defineProperty(_$$on$owlCarousel3, "navText", ['<i class="ion-ios-arrow-thin-left"></i>', '<i class="ion-ios-arrow-thin-right"></i>']), _defineProperty(_$$on$owlCarousel3, "responsiveClass", true), _defineProperty(_$$on$owlCarousel3, "responsive", {
+    0: {
+      items: 1
+    },
+    576: {
+      items: 2
+    },
+    768: {
+      items: 3
+    },
+    1200: {
+      items: 4
+    }
+  }), _$$on$owlCarousel3));
+  /*---featured column3 activation---*/
 
-    while (-1 === self.className.indexOf('nav-menu')) {
-      // On li elements toggle the class .focus.
-      if ('li' === self.tagName.toLowerCase()) {
-        if (-1 !== self.className.indexOf('focus')) {
-          self.className = self.className.replace(' focus', '');
+  $('.featured_column3').on('changed.owl.carousel initialized.owl.carousel', function (event) {
+    $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last');
+  }).owlCarousel((_$$on$owlCarousel4 = {
+    autoplay: true,
+    loop: true,
+    nav: false
+  }, _defineProperty(_$$on$owlCarousel4, "autoplay", false), _defineProperty(_$$on$owlCarousel4, "autoplayTimeout", 8000), _defineProperty(_$$on$owlCarousel4, "items", 3), _defineProperty(_$$on$owlCarousel4, "dots", false), _defineProperty(_$$on$owlCarousel4, "responsiveClass", true), _defineProperty(_$$on$owlCarousel4, "responsive", {
+    0: {
+      items: 1
+    },
+    768: {
+      items: 2
+    },
+    992: {
+      items: 3
+    }
+  }), _$$on$owlCarousel4));
+  /*---product column3 activation---*/
+
+  $('.product_column3').owlCarousel((_$$owlCarousel2 = {
+    autoplay: true,
+    loop: true,
+    nav: true
+  }, _defineProperty(_$$owlCarousel2, "autoplay", false), _defineProperty(_$$owlCarousel2, "autoplayTimeout", 8000), _defineProperty(_$$owlCarousel2, "items", 3), _defineProperty(_$$owlCarousel2, "margin", 20), _defineProperty(_$$owlCarousel2, "dots", false), _defineProperty(_$$owlCarousel2, "navText", ['<i class="ion-ios-arrow-thin-left"></i>', '<i class="ion-ios-arrow-thin-right"></i>']), _defineProperty(_$$owlCarousel2, "responsiveClass", true), _defineProperty(_$$owlCarousel2, "responsive", {
+    0: {
+      items: 1
+    },
+    768: {
+      items: 2
+    },
+    992: {
+      items: 3
+    }
+  }), _$$owlCarousel2));
+  /*---product column2 activation---*/
+
+  $('.product_column2').owlCarousel((_$$owlCarousel3 = {
+    autoplay: true,
+    loop: true,
+    nav: true
+  }, _defineProperty(_$$owlCarousel3, "autoplay", false), _defineProperty(_$$owlCarousel3, "autoplayTimeout", 8000), _defineProperty(_$$owlCarousel3, "items", 2), _defineProperty(_$$owlCarousel3, "margin", 20), _defineProperty(_$$owlCarousel3, "dots", false), _defineProperty(_$$owlCarousel3, "navText", ['<i class="ion-ios-arrow-thin-left"></i>', '<i class="ion-ios-arrow-thin-right"></i>']), _defineProperty(_$$owlCarousel3, "responsiveClass", true), _defineProperty(_$$owlCarousel3, "responsive", {
+    0: {
+      items: 1
+    },
+    768: {
+      items: 1,
+      margin: 0
+    },
+    992: {
+      items: 2
+    }
+  }), _$$owlCarousel3));
+  /*---product column4 activation---*/
+
+  $('.blog_column4').owlCarousel((_$$owlCarousel4 = {
+    autoplay: true,
+    loop: true,
+    nav: true
+  }, _defineProperty(_$$owlCarousel4, "autoplay", false), _defineProperty(_$$owlCarousel4, "autoplayTimeout", 8000), _defineProperty(_$$owlCarousel4, "items", 4), _defineProperty(_$$owlCarousel4, "margin", 20), _defineProperty(_$$owlCarousel4, "dots", false), _defineProperty(_$$owlCarousel4, "navText", ['<i class="ion-ios-arrow-thin-left"></i>', '<i class="ion-ios-arrow-thin-right"></i>']), _defineProperty(_$$owlCarousel4, "responsiveClass", true), _defineProperty(_$$owlCarousel4, "responsive", {
+    0: {
+      items: 1
+    },
+    768: {
+      items: 3
+    },
+    992: {
+      items: 3
+    },
+    1200: {
+      items: 4
+    }
+  }), _$$owlCarousel4));
+  /*---blog thumb activation---*/
+
+  $('.blog_thumb_active').owlCarousel((_$$owlCarousel5 = {
+    autoplay: true,
+    loop: true,
+    nav: true
+  }, _defineProperty(_$$owlCarousel5, "autoplay", false), _defineProperty(_$$owlCarousel5, "autoplayTimeout", 8000), _defineProperty(_$$owlCarousel5, "items", 1), _defineProperty(_$$owlCarousel5, "margin", 20), _defineProperty(_$$owlCarousel5, "navText", ['<i class="ion-ios-arrow-thin-left"></i>', '<i class="ion-ios-arrow-thin-right"></i>']), _$$owlCarousel5));
+  /*---brand container activation---*/
+
+  $('.brand_container').on('changed.owl.carousel initialized.owl.carousel', function (event) {
+    $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last');
+  }).owlCarousel((_$$on$owlCarousel5 = {
+    autoplay: true,
+    loop: true,
+    nav: false
+  }, _defineProperty(_$$on$owlCarousel5, "autoplay", false), _defineProperty(_$$on$owlCarousel5, "autoplayTimeout", 8000), _defineProperty(_$$on$owlCarousel5, "items", 5), _defineProperty(_$$on$owlCarousel5, "dots", false), _defineProperty(_$$on$owlCarousel5, "responsiveClass", true), _defineProperty(_$$on$owlCarousel5, "responsive", {
+    0: {
+      items: 1
+    },
+    480: {
+      items: 2
+    },
+    768: {
+      items: 3
+    },
+    992: {
+      items: 4
+    },
+    1200: {
+      items: 5
+    }
+  }), _$$on$owlCarousel5));
+  /*---small product activation---*/
+
+  $('.small_product_active').slick({
+    centerMode: true,
+    centerPadding: '0',
+    slidesToShow: 1,
+    arrows: false,
+    rows: 3,
+    responsive: [{
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }, {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }, {
+      breakpoint: 991,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    }]
+  });
+  /*---single product activation---*/
+
+  $('.single-product-active').owlCarousel((_$$owlCarousel6 = {
+    autoplay: true,
+    loop: true,
+    nav: true
+  }, _defineProperty(_$$owlCarousel6, "autoplay", false), _defineProperty(_$$owlCarousel6, "autoplayTimeout", 8000), _defineProperty(_$$owlCarousel6, "items", 4), _defineProperty(_$$owlCarousel6, "margin", 15), _defineProperty(_$$owlCarousel6, "dots", false), _defineProperty(_$$owlCarousel6, "navText", ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>']), _defineProperty(_$$owlCarousel6, "responsiveClass", true), _defineProperty(_$$owlCarousel6, "responsive", {
+    0: {
+      items: 1
+    },
+    320: {
+      items: 2
+    },
+    992: {
+      items: 3
+    },
+    1200: {
+      items: 4
+    }
+  }), _$$owlCarousel6));
+  /*---testimonial active activation---*/
+
+  $('.testimonial_active').owlCarousel((_$$owlCarousel7 = {
+    autoplay: true,
+    loop: true,
+    nav: false
+  }, _defineProperty(_$$owlCarousel7, "autoplay", false), _defineProperty(_$$owlCarousel7, "autoplayTimeout", 8000), _defineProperty(_$$owlCarousel7, "items", 1), _defineProperty(_$$owlCarousel7, "dots", true), _$$owlCarousel7));
+  /*---product navactive activation---*/
+
+  $('.product_navactive').owlCarousel((_$$owlCarousel8 = {
+    autoplay: true,
+    loop: true,
+    nav: true
+  }, _defineProperty(_$$owlCarousel8, "autoplay", false), _defineProperty(_$$owlCarousel8, "autoplayTimeout", 8000), _defineProperty(_$$owlCarousel8, "items", 4), _defineProperty(_$$owlCarousel8, "dots", false), _defineProperty(_$$owlCarousel8, "navText", ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>']), _defineProperty(_$$owlCarousel8, "responsiveClass", true), _defineProperty(_$$owlCarousel8, "responsive", {
+    0: {
+      items: 1
+    },
+    250: {
+      items: 2
+    },
+    480: {
+      items: 3
+    },
+    768: {
+      items: 4
+    }
+  }), _$$owlCarousel8));
+  $('.modal').on('shown.bs.modal', function (e) {
+    $('.product_navactive').resize();
+  });
+  $('.product_navactive a').on('click', function (e) {
+    e.preventDefault();
+    var $href = $(this).attr('href');
+    $('.product_navactive a').removeClass('active');
+    $(this).addClass('active');
+    $('.product-details-large .tab-pane').removeClass('active show');
+    $('.product-details-large ' + $href).addClass('active show');
+  });
+  /*--- Magnific Popup Video---*/
+
+  $('.video_popup').magnificPopup({
+    type: 'iframe',
+    removalDelay: 300,
+    mainClass: 'mfp-fade'
+  });
+  /*--- Magnific Popup Video---*/
+
+  $('.port_popup').magnificPopup({
+    type: 'image',
+    gallery: {
+      enabled: true
+    }
+  });
+  /*--- niceSelect---*/
+
+  $('.select_option').niceSelect();
+  /*---  Accordion---*/
+
+  $(".faequently-accordion").collapse({
+    accordion: true,
+    open: function open() {
+      this.slideDown(300);
+    },
+    close: function close() {
+      this.slideUp(300);
+    }
+  });
+  /*--- counterup activation ---*/
+
+  $('.counter_number').counterUp({
+    delay: 10,
+    time: 1000
+  });
+  /*---  ScrollUp Active ---*/
+
+  $.scrollUp({
+    scrollText: '<i class="fa fa-angle-double-up"></i>',
+    easingType: 'linear',
+    scrollSpeed: 900,
+    animation: 'fade'
+  });
+  /*---countdown activation---*/
+
+  $('[data-countdown]').each(function () {
+    var $this = $(this),
+        finalDate = $(this).data('countdown');
+    $this.countdown(finalDate, function (event) {
+      $this.html(event.strftime('<div class="countdown_area"><div class="single_countdown"><div class="countdown_number">%D</div><div class="countdown_title">d:</div></div><div class="single_countdown"><div class="countdown_number">%H</div><div class="countdown_title">h:</div></div><div class="single_countdown"><div class="countdown_number">%M</div><div class="countdown_title">m:</div></div><div class="single_countdown"><div class="countdown_number">%S</div><div class="countdown_title">s</div></div></div>'));
+    });
+  });
+  /*---slider-range here---*/
+
+  $("#slider-range").slider({
+    range: true,
+    min: 0,
+    max: 500,
+    values: [0, 500],
+    slide: function slide(event, ui) {
+      $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+    }
+  });
+  $("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
+  /*---niceSelect---*/
+
+  $('.niceselect_option').niceSelect();
+  /*---elevateZoom---*/
+
+  $("#zoom1").elevateZoom({
+    gallery: 'gallery_01',
+    responsive: true,
+    cursor: 'crosshair',
+    zoomType: 'inner'
+  });
+  /*---portfolio Isotope activation---*/
+
+  $('.portfolio_gallery').imagesLoaded(function () {
+    var $grid = $('.portfolio_gallery').isotope({
+      itemSelector: '.gird_item',
+      percentPosition: true,
+      masonry: {
+        columnWidth: '.gird_item'
+      }
+    });
+    /*---ilter items on button click---*/
+
+    $('.portfolio_button').on('click', 'button', function () {
+      var filterValue = $(this).attr('data-filter');
+      $grid.isotope({
+        filter: filterValue
+      });
+      $(this).siblings('.active').removeClass('active');
+      $(this).addClass('active');
+    });
+  });
+  /*---slide toggle activation---*/
+
+  $('.mini_cart_wrapper > a').on('click', function (event) {
+    if ($(window).width() < 991) {
+      $('.mini_cart').slideToggle('medium');
+    }
+  });
+  /*categories slideToggle*/
+
+  $(".categories_title").on("click", function () {
+    $(this).toggleClass('active');
+    $('.categories_menu_toggle').slideToggle('medium');
+  });
+  /*------addClass/removeClass categories-------*/
+
+  $("#cat_toggle.has-sub > a").on("click", function () {
+    $(this).removeAttr('href');
+    $(this).toggleClass('open').next('.categorie_sub').toggleClass('open');
+    $(this).parents().siblings().find('#cat_toggle.has-sub > a').removeClass('open');
+  });
+  /* ---------------------
+  Category menu
+  --------------------- */
+
+  function categorySubMenuToggle() {
+    $('.categories_menu_toggle li.menu_item_children > a').on('click', function () {
+      if ($(window).width() < 991) {
+        $(this).removeAttr('href');
+        var element = $(this).parent('li');
+
+        if (element.hasClass('open')) {
+          element.removeClass('open');
+          element.find('li').removeClass('open');
+          element.find('ul').slideUp();
         } else {
-          self.className += ' focus';
+          element.addClass('open');
+          element.children('ul').slideDown();
+          element.siblings('li').children('ul').slideUp();
+          element.siblings('li').removeClass('open');
+          element.siblings('li').find('li').removeClass('open');
+          element.siblings('li').find('ul').slideUp();
         }
       }
-
-      self = self.parentElement;
-    }
+    });
+    $('.categories_menu_toggle li.menu_item_children > a').append('<span class="expand"></span>');
   }
-  /**
-   * Toggles `focus` class to allow submenu access on tablets.
-   */
 
+  categorySubMenuToggle();
+  /*---shop grid activation---*/
 
-  (function (container) {
-    var touchStartFn,
-        i,
-        parentLink = container.querySelectorAll('.menu-item-has-children > a, .page_item_has_children > a');
+  $('.shop_toolbar_btn > button').on('click', function (e) {
+    e.preventDefault();
+    $('.shop_toolbar_btn > button').removeClass('active');
+    $(this).addClass('active');
+    var parentsDiv = $('.shop_wrapper');
+    var viewMode = $(this).data('role');
+    parentsDiv.removeClass('grid_3 grid_4 grid_5 grid_list').addClass(viewMode);
 
-    if ('ontouchstart' in window) {
-      touchStartFn = function touchStartFn(e) {
-        var menuItem = this.parentNode,
-            i;
-
-        if (!menuItem.classList.contains('focus')) {
-          e.preventDefault();
-
-          for (i = 0; i < menuItem.parentNode.children.length; ++i) {
-            if (menuItem === menuItem.parentNode.children[i]) {
-              continue;
-            }
-
-            menuItem.parentNode.children[i].classList.remove('focus');
-          }
-
-          menuItem.classList.add('focus');
-        } else {
-          menuItem.classList.remove('focus');
-        }
-      };
-
-      for (i = 0; i < parentLink.length; ++i) {
-        parentLink[i].addEventListener('touchstart', touchStartFn, false);
-      }
+    if (viewMode == 'grid_3') {
+      parentsDiv.children().addClass('col-lg-4 col-md-4 col-sm-6').removeClass('col-lg-3 col-cust-5 col-12');
     }
-  })(container);
-})();
-"use strict";
 
-/**
- * File skip-link-focus-fix.js.
- *
- * Helps with accessibility for keyboard only users.
- *
- * Learn more: https://git.io/vWdr2
- */
-(function () {
-  var isIe = /(trident|msie)/i.test(navigator.userAgent);
+    if (viewMode == 'grid_4') {
+      parentsDiv.children().addClass('col-lg-3 col-md-4 col-sm-6').removeClass('col-lg-4 col-cust-5 col-12');
+    }
 
-  if (isIe && document.getElementById && window.addEventListener) {
-    window.addEventListener('hashchange', function () {
-      var id = location.hash.substring(1),
-          element;
+    if (viewMode == 'grid_list') {
+      parentsDiv.children().addClass('col-12').removeClass('col-lg-3 col-lg-4 col-md-4 col-sm-6 col-cust-5');
+    }
+  });
+  /*---Newsletter Popup activation---*/
 
-      if (!/^[A-z0-9_-]+$/.test(id)) {
-        return;
+  setTimeout(function () {
+    if ($.cookie('shownewsletter') == 1) $('.newletter-popup').hide();
+    $('#subscribe_pemail').keypress(function (e) {
+      if (e.which == 13) {
+        e.preventDefault();
+        email_subscribepopup();
       }
 
-      element = document.getElementById(id);
+      var name = $(this).val();
+      $('#subscribe_pname').val(name);
+    });
+    $('#subscribe_pemail').change(function () {
+      var name = $(this).val();
+      $('#subscribe_pname').val(name);
+    }); //transition effect
 
-      if (element) {
-        if (!/^(?:a|select|input|button|textarea)$/i.test(element.tagName)) {
-          element.tabIndex = -1;
-        }
+    if ($.cookie("shownewsletter") != 1) {
+      $('.newletter-popup').bPopup();
+    }
 
-        element.focus();
+    $('#newsletter_popup_dont_show_again').on('change', function () {
+      if ($.cookie("shownewsletter") != 1) {
+        $.cookie("shownewsletter", '1');
+      } else {
+        $.cookie("shownewsletter", '0');
       }
-    }, false);
-  }
-})();
+    });
+  }, 2500);
+  /*---canvas menu activation---*/
+
+  $(".canvas_open").on("click", function () {
+    $(".Offcanvas_menu_wrapper").addClass("active");
+  });
+  $(".canvas_close").on("click", function () {
+    $(".Offcanvas_menu_wrapper").removeClass("active");
+  });
+  /*--- Clickable menu active ----*/
+
+  var slinky = $('#menu').slinky();
+})(jQuery);

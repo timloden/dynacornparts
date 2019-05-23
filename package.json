@@ -48,7 +48,5 @@
     "clearCache": "gulp clearCache",
     "translate": "gulp translate"
   },
-  "dependencies": {
-    "foundation-sites": "^6.5.3"
-  }
+  "dependencies": {}
 }

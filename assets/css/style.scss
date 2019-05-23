@@ -19,106 +19,75 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */
+/*-----------------------------------------------------------------------------------
 
-/*--------------------------------------------------------------
->>> TABLE OF CONTENTS:
-----------------------------------------------------------------
 
-# Foundation
-# Normalize
-# Typography
-# Elements
-# Forms
-# Navigation
-	## Links
-	## Menus
-# Accessibility
-# Alignments
-# Clearings
-# Widgets
-# Content
-	## Posts and pages
-	## Comments
-# Infinite scroll
-# Media
-	## Captions
-	## Galleries
---------------------------------------------------------------*/
-@import "variables-site/variables-site";
-@import "mixins/mixins-master";
+    CSS INDEX
+    =========================================
+    01. header css here
+    02. slider area css here
+    03. product section css here
+    04. banner section css here
+    05. blog area css here
+    06. newsletter area css here
+    07. footer area css here
+    08. shop page css here
+    09. error page css heer
+    10. about page css here
+    11. blog page css here
+    12. blog details css here
+    13. cart page css here
+    14. checkout page css here
+    15. contact page css here
+    16. faq page css here
+    17. login page css here
+    18. my account css here
+    19. portfolio page css here
+    20. services page css here
+    21. shipping css here
+    22. wishlist css here
+    23. newsletter popup css here
+    24. modal css here
 
-/*--------------------------------------------------------------
-# Foundation
---------------------------------------------------------------*/
 
-@import 'foundation/settings';
-@import 'node_modules/foundation-sites/assets/foundation';
-@include foundation-everything;
 
-// @include foundation-grid;
-@include foundation-flex-classes;
-@include foundation-flex-grid;
+-----------------------------------------------------------------------------------*/
 
-@import 'node_modules/motion-ui/src/motion-ui';
-@include motion-ui-transitions;
-@include motion-ui-animations;
-
-/*--------------------------------------------------------------
-# Normalize
---------------------------------------------------------------*/
-@import "normalize";
-
-/*--------------------------------------------------------------
-# Typography
---------------------------------------------------------------*/
-@import "typography/typography";
-
-/*--------------------------------------------------------------
-# Elements
---------------------------------------------------------------*/
-@import "elements/elements";
-
-/*--------------------------------------------------------------
-# Forms
---------------------------------------------------------------*/
-@import "forms/forms";
-
-/*--------------------------------------------------------------
-# Navigation
---------------------------------------------------------------*/
-@import "navigation/navigation";
-
-/*--------------------------------------------------------------
-# Accessibility
---------------------------------------------------------------*/
-@import "modules/accessibility";
-
-/*--------------------------------------------------------------
-# Alignments
---------------------------------------------------------------*/
-@import "modules/alignments";
-
-/*--------------------------------------------------------------
-# Clearings
---------------------------------------------------------------*/
-@import "modules/clearings";
-
-/*--------------------------------------------------------------
-# Widgets
---------------------------------------------------------------*/
-@import "site/secondary/widgets";
-
-/*--------------------------------------------------------------
-# Content
---------------------------------------------------------------*/
-@import "site/site";
-
-/*--------------------------------------------------------------
-# Infinite scroll
---------------------------------------------------------------*/
-@import "modules/infinite-scroll";
-
-/*--------------------------------------------------------------
-# Media
---------------------------------------------------------------*/
-@import "media/media";
+@import 'variabls';
+@import 'mixin';
+@import 'common';
+@import 'element/button';
+@import 'section/header';
+@import 'section/slider';
+@import 'section/banner';
+@import 'section/product';
+@import 'section/blog';
+@import 'section/newsletter';
+@import 'section/shipping';
+@import 'section/testimonial';
+@import 'section/brand';
+@import 'section/footer';
+@import 'section/collection';
+@import 'section/shop';
+@import 'section/product-details';
+@import 'section/cart-page';
+@import 'section/checkout';
+@import 'section/wishlist';
+@import 'section/contact';
+@import 'section/login';
+@import 'section/faq';
+@import 'section/my-account';
+@import 'section/about';
+@import 'section/services';
+@import 'section/blog-page';
+@import 'section/blog-details';
+@import 'section/quick-view';
+@import 'section/newsletter-popup';
+@import 'section/404';
+@import 'woocommerce';
+@import "shop/tables";
+//@import "shop/products";
+//@import "shop/single-product";
+//@import "shop/checkout";
+//@import "shop/components";
+//@import "shop/widgets";

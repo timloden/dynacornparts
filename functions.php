@@ -131,9 +131,20 @@ function caweb_autoload() {
 	}
 }
 
-/**
- * Load WooCommerce compatibility file.
- */
-if ( class_exists( 'WooCommerce' ) ) {
-	require get_template_directory() . '/inc/woocommerce.php';
+function dynacornparts_woocommerce_setup() {
+	add_theme_support( 'woocommerce' );
+	add_theme_support( 'wc-product-gallery-zoom' );
+	add_theme_support( 'wc-product-gallery-lightbox' );
+	add_theme_support( 'wc-product-gallery-slider' );
 }
+add_action( 'after_setup_theme', 'dynacornparts_woocommerce_setup' );
+
+/**
+ * Disable the default WooCommerce stylesheet.
+ *
+ * Removing the default WooCommerce stylesheet and enqueing your own will
+ * protect you during WooCommerce core updates.
+ *
+ * @link https://docs.woocommerce.com/document/disable-the-default-stylesheet/
+ */
+add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
