@@ -23,9 +23,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 
+<div class="tab-pane fade show active" id="orders">
+
 <?php if ( $has_orders ) : ?>
 
-	<table class="woocommerce-orders-table woocommerce-MyAccount-orders shop_table shop_table_responsive my_account_orders account-orders-table">
+<div class="table-responsive">
+	<table class="woocommerce-orders-table woocommerce-MyAccount-orders shop_table shop_table_responsive my_account_orders account-orders-table table">
 		<thead>
 			<tr>
 				<?php foreach ( wc_get_account_orders_columns() as $column_id => $column_name ) : ?>
@@ -79,6 +82,7 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 			<?php endforeach; ?>
 		</tbody>
 	</table>
+</div>
 
 	<?php do_action( 'woocommerce_before_account_orders_pagination' ); ?>
 
@@ -95,12 +99,11 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 	<?php endif; ?>
 
 <?php else : ?>
-	<div class="woocommerce-message woocommerce-message--info woocommerce-Message woocommerce-Message--info woocommerce-info">
-		<a class="woocommerce-Button button" href="<?php echo esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) ); ?>">
-			<?php _e( 'Go shop', 'woocommerce' ); ?>
-		</a>
+	<div class="alert alert-info alert-dismissible fade show" role="alert">
 		<?php _e( 'No order has been made yet.', 'woocommerce' ); ?>
 	</div>
 <?php endif; ?>
+
+</div>
 
 <?php do_action( 'woocommerce_after_account_orders', $has_orders ); ?>

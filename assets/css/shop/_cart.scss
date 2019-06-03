@@ -1,0 +1,40 @@
+/**
+ * Cart
+ */
+
+ .woocommerce-cart-form__cart-item {
+ 	display: table-row;
+ 	overflow: auto;
+ }
+
+ .shipping-calculator-form {
+	justify-content: flex-start;
+    flex-wrap: wrap;
+
+ 	p {
+ 		width: 50%;
+
+ 		.select_option {
+ 			width: 90%;
+ 		}
+
+ 		.input-text {
+ 			width: 90%;
+ 		}
+
+ 		span {
+ 			margin-right: 0;
+ 		}
+
+ 	}
+ }
+
+ .enter-address {
+	p {
+		width: 100%;
+
+		a {
+			text-align: left;
+		}
+	}
+}

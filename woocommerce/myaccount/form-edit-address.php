@@ -25,17 +25,39 @@ do_action( 'woocommerce_before_edit_account_address_form' ); ?>
 	<?php wc_get_template( 'myaccount/my-address.php' ); ?>
 <?php else : ?>
 
+<div class="row">
+	<div class="col-12 mb-20 address-form">
+
 	<form method="post">
 
 		<h3><?php echo apply_filters( 'woocommerce_my_account_edit_address_title', $page_title, $load_address ); ?></h3><?php // @codingStandardsIgnoreLine ?>
 
-		<div class="woocommerce-address-fields">
 			<?php do_action( "woocommerce_before_edit_address_form_{$load_address}" ); ?>
 
-			<div class="woocommerce-address-fields__field-wrapper">
+			<div class="row woocommerce-address-fields__field-wrapper">
 				<?php
 				foreach ( $address as $key => $field ) {
-					woocommerce_form_field( $key, $field, wc_get_post_data_by_key( $key, $field['value'] ) );
+
+
+					$field['return'] = true;	//	Returning it to a string to I can run a str_replace and change the hard-coded <p> tags for <divs>
+
+					if ($key === 'billing_address_1' || $key === 'billing_address_2' || $key === 'billing_email') {
+
+						$theField = woocommerce_form_field($key, $field, wc_get_post_data_by_key( $key, $field['value'] ));
+						$theField = str_replace('<p', '<div class="col-12 mb-20"', $theField);	//	Add your classes here too, if you want
+						$theField = str_replace('</p', '</div', $theField);
+						echo $theField;
+
+					} else {
+
+						$theField = woocommerce_form_field($key, $field, wc_get_post_data_by_key( $key, $field['value'] ));
+						$theField = str_replace('<p', '<div class="col-lg-6 mb-20"', $theField);	//	Add your classes here too, if you want
+						$theField = str_replace('</p', '</div', $theField);
+						echo $theField;
+					}
+
+					//woocommerce_form_field( $key, $field, wc_get_post_data_by_key( $key, $field['value'] ) );
+
 				}
 				?>
 			</div>
@@ -47,9 +69,10 @@ do_action( 'woocommerce_before_edit_account_address_form' ); ?>
 				<?php wp_nonce_field( 'woocommerce-edit_address', 'woocommerce-edit-address-nonce' ); ?>
 				<input type="hidden" name="action" value="edit_address" />
 			</p>
-		</div>
 
 	</form>
+
+</div>
 
 <?php endif; ?>
 

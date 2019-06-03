@@ -85,9 +85,11 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @import 'section/newsletter-popup';
 @import 'section/404';
 @import 'woocommerce';
-@import "shop/tables";
+@import "shop/cart";
 //@import "shop/products";
 //@import "shop/single-product";
-//@import "shop/checkout";
+@import "shop/checkout";
+@import "shop/my-account";
+@import "shop/ymm";
 //@import "shop/components";
 //@import "shop/widgets";

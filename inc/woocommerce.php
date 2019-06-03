@@ -125,3 +125,21 @@ add_action( 'woocommerce_after_shop_loop', 'dynacornparts_woocommerce_product_co
  */
 remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
+
+//add_filter('woocommerce_checkout_fields', 'addBootstrapToCheckoutFields' );
+
+function addBootstrapToCheckoutFields($fields) {
+
+    foreach ($fields as &$fieldset) {
+        foreach ($fieldset as &$field) {
+            // if you want to add the form-group class around the label and the input
+            //$field['class'][] = 'form-group';
+
+            // add form-control to the actual input
+            //$field['input_class'][] = 'form-control';
+
+            print_r($field);
+        }
+    }
+    return $fields;
+}

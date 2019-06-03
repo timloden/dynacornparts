@@ -20,14 +20,14 @@ defined( 'ABSPATH' ) || exit;
 do_action( 'woocommerce_before_shipping_calculator' ); ?>
 
 <form class="woocommerce-shipping-calculator" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
-
-	<?php printf( '<a href="#" class="shipping-calculator-button">%s</a>', esc_html( ! empty( $button_text ) ? $button_text : __( 'Calculate shipping', 'woocommerce' ) ) ); ?>
-
-	<section class="shipping-calculator-form" style="display:none;">
+	<div class="cart_subtotal enter-address">
+		<p><?php printf( '<a href="#" class="shipping-calculator-button">%s</a>', esc_html( ! empty( $button_text ) ? $button_text : __( 'Calculate shipping', 'woocommerce' ) ) ); ?></p>
+	</div>
+	<div class="cart_subtotal shipping-calculator-form" style="display:none;">
 
 		<?php if ( apply_filters( 'woocommerce_shipping_calculator_enable_country', true ) ) : ?>
 			<p class="form-row form-row-wide" id="calc_shipping_country_field">
-				<select name="calc_shipping_country" id="calc_shipping_country" class="country_to_state country_select" rel="calc_shipping_state">
+				<select name="calc_shipping_country" id="calc_shipping_country" class="country_to_state country_select select_option" rel="calc_shipping_state">
 					<option value=""><?php esc_html_e( 'Select a country&hellip;', 'woocommerce' ); ?></option>
 					<?php
 					foreach ( WC()->countries->get_shipping_countries() as $key => $value ) {
@@ -51,8 +51,8 @@ do_action( 'woocommerce_before_shipping_calculator' ); ?>
 					<?php
 				} elseif ( is_array( $states ) ) {
 					?>
-					<span>
-						<select name="calc_shipping_state" class="state_select" id="calc_shipping_state" data-placeholder="<?php esc_attr_e( 'State / County', 'woocommerce' ); ?>">
+
+						<select name="calc_shipping_state" class="state_select select_option" id="calc_shipping_state" data-placeholder="<?php esc_attr_e( 'State / County', 'woocommerce' ); ?>">
 							<option value=""><?php esc_html_e( 'Select an option&hellip;', 'woocommerce' ); ?></option>
 							<?php
 							foreach ( $states as $ckey => $cvalue ) {
@@ -60,7 +60,7 @@ do_action( 'woocommerce_before_shipping_calculator' ); ?>
 							}
 							?>
 						</select>
-					</span>
+
 					<?php
 				} else {
 					?>
@@ -85,7 +85,7 @@ do_action( 'woocommerce_before_shipping_calculator' ); ?>
 
 		<p><button type="submit" name="calc_shipping" value="1" class="button"><?php esc_html_e( 'Update', 'woocommerce' ); ?></button></p>
 		<?php wp_nonce_field( 'woocommerce-shipping-calculator', 'woocommerce-shipping-calculator-nonce' ); ?>
-	</section>
+	</div>
 </form>
 
 <?php do_action( 'woocommerce_after_shipping_calculator' ); ?>

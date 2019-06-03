@@ -22,9 +22,6 @@
 	<?php
 	$cart_count = WC()->cart->get_cart_contents_count();
 	$cart_total = WC()->cart->get_cart_contents_total();
-	// echo '<pre>';
-	// print_r(WC()->cart->get_cart());
-	// echo '</pre>';
 	?>
 </head>
 
@@ -50,12 +47,11 @@
 	            <div class="col-lg-6 col-md-6">
 	                <div class="top_right text-right">
 	                    <ul>
-	                       <li class="top_links"><a href="#"><i class="ion-android-person"></i> My Account<i class="ion-ios-arrow-down"></i></a>
+	                       <li class="top_links"><a href="<?php echo site_url(); ?>/my-account"><i class="ion-android-person"></i> My Account<i class="ion-ios-arrow-down"></i></a>
 	                            <ul class="dropdown_links">
-	                                <li><a href="checkout.html">Checkout </a></li>
-	                                <li><a href="my-account.html">My Account </a></li>
-	                                <li><a href="cart.html">Shopping Cart</a></li>
-	                                <li><a href="wishlist.html">Wishlist</a></li>
+	                                <li><a href="<?php echo site_url(); ?>/checkout">Checkout </a></li>
+	                                <li><a href="<?php echo site_url(); ?>/my-account">My Account </a></li>
+	                                <li><a href="<?php echo site_url(); ?>/cart">Shopping Cart</a></li>
 	                            </ul>
 	                        </li>
 	                    </ul>
@@ -82,16 +78,10 @@
 	                            <div class="search_box">
 	                                <input placeholder="Search entire store here ..." type="text">
 	                                <button type="submit"><i class="ion-ios-search-strong"></i></button>
-	                                <?php //if ( function_exists( 'aws_get_search_form' ) ) { aws_get_search_form(); } ?>
 	                            </div>
 	                        </form>
 	                    </div>
 	                    <div class="middel_right_info">
-
-	                      <!--   <div class="header_wishlist">
-	                            <a href="wishlist.html"><span class="lnr lnr-heart"></span> Wish list </a>
-	                            <span class="wishlist_quantity">0</span>
-	                        </div> -->
 	                        <div class="mini_cart_wrapper">
 	                            <a href="<?php echo site_url(); ?>/cart"><span class="lnr lnr-cart"></span>My Cart </a>
 

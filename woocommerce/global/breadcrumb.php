@@ -37,7 +37,7 @@ if ( ! empty( $breadcrumb ) ) {
 		if ( ! empty( $crumb[1] ) && sizeof( $breadcrumb ) !== $key + 1 ) {
 			echo '<li><a href="' . esc_url( $crumb[1] ) . '">' . esc_html( $crumb[0] ) . '</a></li>';
 		} else {
-			echo esc_html( $crumb[0] );
+			echo '<li>' . esc_html( $crumb[0] ) . '</li>';
 		}
 	}
 
