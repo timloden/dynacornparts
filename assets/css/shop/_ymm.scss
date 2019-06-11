@@ -5,3 +5,55 @@
 .ymm-garage {
 	margin-bottom: 20px;
 }
+
+.ymm-selector.ymm-horizontal {
+	display: flex;
+	align-items: center;
+
+	@media #{$tablet-device} {
+       //flex-wrap: wrap;
+    }
+    @media #{$large-mobile} {
+        flex-wrap: wrap;
+    }
+
+	.ymm-title {
+		margin-right: 10px;
+	}
+
+	.level {
+		width: auto;
+		height: 47px;
+
+		select.ymm-select {
+			border: 0;
+			background: #f5f5f5;
+			height: 47px;
+			color: #9e9e9e;
+		    font-size: 13px;
+		    font-weight: 400;
+		    padding: 0 80px 0 20px;
+		}
+	}
+
+	.ymm-extra {
+
+		.ymm-search {
+			margin: 0;
+		}
+	}
+
+	.ymm-submit-any-selection {
+		margin-top: 0;
+	}
+}
+
+.ymm-box select.ymm-select {
+	border: 0;
+	background: #fff;
+	height: 47px;
+	color: #9e9e9e;
+    font-size: 13px;
+    font-weight: 400;
+    padding: 0 80px 0 20px;
+}

@@ -55,12 +55,23 @@ do_action( 'woocommerce_before_main_content' );
                 <!--sidebar widget end-->
             </div>
             <div class="col-lg-9 col-md-12">
-				<div class="shop_banner">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/banner8.jpg" alt="">
-                </div>
-            	<div class="shop_title">
-                    <h1>shop</h1>
-                </div>
+            	<?php if ( is_product_category() ){
+					    global $wp_query;
+
+					    // get the query object
+					    $cat = $wp_query->get_queried_object();
+
+					    // get the thumbnail id using the queried category term_id
+					    $thumbnail_id = get_term_meta( $cat->term_id, 'thumbnail_id', true );
+
+					    // get the image URL
+					    $image = wp_get_attachment_url( $thumbnail_id );
+
+					    if ($image) {
+					    	 echo '<div class="shop_banner"><img src="' . $image . '"></div>';
+					    }
+					}
+				?>
                 <div class="shop_toolbar_wrapper">
 
 				<?php if ( woocommerce_product_loop() ) {

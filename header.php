@@ -68,18 +68,23 @@
 	        <div class="row align-items-center">
 	            <div class="col-lg-3 col-md-3">
 	                <div class="logo">
-	                    <a href="<?php echo site_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt=""></a>
+	                    <a href="<?php echo site_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/dynacorn-parts-temp-logo.png" alt=""></a>
 	                </div>
 	            </div>
 	            <div class="col-lg-9 col-md-9">
 	                <div class="middel_right">
+<!-- 	                	<div class="ymm-title">
+
+	                	</div> -->
 	                    <div class="search-container search_two">
-	                       <form action="#">
+	                       <!-- <form action="#">
 	                            <div class="search_box">
 	                                <input placeholder="Search entire store here ..." type="text">
 	                                <button type="submit"><i class="ion-ios-search-strong"></i></button>
 	                            </div>
-	                        </form>
+	                        </form> -->
+	                        <?php //echo do_shortcode( '[wcas-search-form]' ); ?>
+	                        <?php echo do_shortcode('[ymm_selector template="horizontal_selector.php"]'); ?>
 	                    </div>
 	                    <div class="middel_right_info">
 	                        <div class="mini_cart_wrapper">
@@ -145,13 +150,13 @@
 	                <div class="header_bottom_container">
 	                    <div class="categories_menu">
 	                        <div class="categories_title">
-	                            <h2 class="categori_toggle">Browse categories</h2>
+	                            <h2 class="categori_toggle">Browse by Vehicle</h2>
 	                        </div>
 	                        <div class="categories_menu_toggle">
 								<?php
 									$args = array(
 								          'taxonomy' => 'product_cat',
-								          'hide_empty' => false,
+								          'hide_empty' => true,
 								          'parent'   => 0
 								      );
 									$product_cat = get_terms( $args );
@@ -266,12 +271,7 @@
                         </ul>
                     </div>
                     <div class="search-container">
-                       <form action="#">
-                            <div class="search_box">
-                                <input placeholder="Search entire store here ..." type="text">
-                                <button type="submit"><i class="ion-ios-search-strong"></i></button>
-                            </div>
-                        </form>
+                       <?php echo do_shortcode('[ymm_selector template="selector.php"]'); ?>
                     </div>
                     <div id="menu" class="text-left ">
                         <?php

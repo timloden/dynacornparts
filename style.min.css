@@ -4,7 +4,7 @@ Theme URI: http://underscores.me/
 Author: Tim Loden
 Author URI: http://underscores.me/
 Description: Custom theme: Dynacorn Parts, developed by Tim Loden
-Version: 0.0.0
+Version: 0.0.1
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: dynacornparts
@@ -82,6 +82,7 @@ input:-ms-input-placeholder,textarea:-ms-input-placeholder{opacity:1;-ms-filter:
 .mb-50{margin-bottom:50px}
 .mb-30{margin-bottom:30px}
 .button{background:#005ca9;-webkit-box-shadow:none;box-shadow:none;color:#fff;display:inline-block;height:45px;line-height:45px;padding:0 22px;text-transform:uppercase;font-size:13px;border-radius:3px}
+body.page-template-page-home header .header_b_three{margin-bottom:0}
 .Offcanvas_menu{display:none}
 .Offcanvas_menu_wrapper{width:300px;position:fixed;background:#fff;z-index:99;top:0;height:100vh;-webkit-transition:.5s;transition:.5s;left:0;margin-left:-300px;padding:50px 20px 30px;overflow-y:auto}
 .Offcanvas_menu_wrapper.active{margin-left:0}
@@ -142,9 +143,8 @@ input:-ms-input-placeholder,textarea:-ms-input-placeholder{opacity:1;-ms-filter:
 .dropdown_language li a img{margin-right:4px}
 .dropdown_links{left:0}
 .header_middle{background:#005ca9;padding:25px 0}
-.middel_right{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
-.search-container{margin-right:82px}
-.search_box{position:relative;width:540px;background:#fff;border-radius:5px}
+.middel_right{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:space-between;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.search_box{position:relative;width:250px;margin:0 10px;background:#fff;border-radius:5px}
 .search_box input{border:0;background:0;width:100%;height:47px;color:#9e9e9e;font-size:13px;font-weight:400;padding:0 80px 0 20px}
 .search_box button{border:0;position:absolute;top:0;right:0;background:#3e444a;width:60px;height:100%;color:#fff;font-weight:500;font-size:25px;border-top-right-radius:5px;border-bottom-right-radius:5px;-webkit-transition:.3s;transition:.3s}
 .search_box button:hover{background:#2b3137}
@@ -1248,6 +1248,13 @@ p.stars.selected a:not(.active):before{content:"\53";color:royalblue;opacity:1}
 .address-form .woocommerce-input-wrapper{width:100%;display:block}
 .address-form input{border:1px solid #f0f0f0;background:0;height:40px;width:100%;padding:0 20px;color:#757575}
 .ymm-garage{margin-bottom:20px}
+.ymm-selector.ymm-horizontal{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.ymm-selector.ymm-horizontal .ymm-title{margin-right:10px}
+.ymm-selector.ymm-horizontal .level{width:auto;height:47px}
+.ymm-selector.ymm-horizontal .level select.ymm-select{border:0;background:#f5f5f5;height:47px;color:#9e9e9e;font-size:13px;font-weight:400;padding:0 80px 0 20px}
+.ymm-selector.ymm-horizontal .ymm-extra .ymm-search{margin:0}
+.ymm-selector.ymm-horizontal .ymm-submit-any-selection{margin-top:0}
+.ymm-box select.ymm-select{border:0;background:#fff;height:47px;color:#9e9e9e;font-size:13px;font-weight:400;padding:0 80px 0 20px}
 @media screen and (min-width:48em){table.shop_table_responsive thead{display:table-header-group}
 table.shop_table_responsive tbody th{display:table-cell}
 table.shop_table_responsive tr th,table.shop_table_responsive tr td{text-align:left}
@@ -1422,7 +1429,7 @@ ul.products li.product.last{margin-right:0}
 .section-pt-70{padding-top:60px}
 .section-pb-70{padding-bottom:60px}
 .section-pb{padding-bottom:90px}
-.search_box{width:360px}
+.search_box{width:200px}
 .header_wishlist{margin-right:20px}
 .main_menu nav>ul>li>a{font-size:16px}
 .categories_menu_toggle>ul>li>a{line-height:38px}
@@ -1757,6 +1764,7 @@ ul.products li.product.last{margin-right:0}
 .error_form p{font-size:15px;margin-bottom:28px;line-height:23px}
 .error_form form{width:100%}
 .error_section{padding-bottom:60px;padding-top:45px}
+.ymm-selector.ymm-horizontal{-ms-flex-wrap:wrap;flex-wrap:wrap}
 }@media only screen and (max-width:479px){.container{width:100%}
 .section-ptb{padding:60px 0}
 .section-pt{padding-top:60px}

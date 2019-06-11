@@ -1,6 +1,14 @@
 
 /* 2. Home 1 Header css here */
 
+body.page-template-page-home {
+	header {
+		.header_b_three {
+			margin-bottom: 0;
+		}
+	}
+}
+
 /* 01. header css here */
 .Offcanvas_menu{
 
@@ -436,7 +444,7 @@
 	display: flex;
 	-webkit-box-pack: end;
 	-ms-flex-pack: end;
-	justify-content: flex-end;
+	justify-content: space-between;
 	align-items: center;
     @media #{$large-mobile}{
         justify-content: center;
@@ -445,7 +453,7 @@
 
 }
 .search-container{
-    margin-right: 82px;
+    //margin-right: 82px;
     @media #{$tablet-device}{
        display: none;
     }
@@ -455,11 +463,12 @@
 }
 .search_box{
     position: relative;
-    width: 540px;
+    width: 250px;
+    margin: 0 10px;
     background: $body-color;
     border-radius: 5px;
     @media #{$desktop-device}{
-       width: 360px;
+       width: 200px;
     }
 
     & input{
