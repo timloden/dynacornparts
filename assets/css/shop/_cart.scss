@@ -38,3 +38,14 @@
 		}
 	}
 }
+
+.woocommerce-shipping-methods {
+	li {
+		display: flex;
+		align-items: center;
+
+		label {
+			margin-bottom: 0;
+		}
+	}
+}

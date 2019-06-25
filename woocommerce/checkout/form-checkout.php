@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-do_action( 'woocommerce_before_checkout_form', $checkout );
+//do_action( 'woocommerce_before_checkout_form', $checkout );
 
 // If checkout registration is disabled and not logged in, the user cannot checkout.
 if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_required() && ! is_user_logged_in() ) {
@@ -34,7 +34,8 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 	<div class="Checkout_section mt-32">
 	   <div class="container">
 	        <div class="row">
-	           <div class="col-12">
+	        	<?php if (!is_user_logged_in()) : ?>
+	           <div class="col-6">
 	                <div class="user-actions">
 	                    <h3>
 	                        <i class="fa fa-file-o" aria-hidden="true"></i>
@@ -45,39 +46,34 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 	                     <div id="checkout_login" class="collapse" data-parent="#accordion">
 	                        <div class="checkout_info">
 	                            <p>If you have shopped with us before, please enter your details in the boxes below. If you are a new customer please proceed to the Billing & Shipping section.</p>
-	                            <form action="#">
-	                                <div class="form_group">
-	                                    <label>Username or email <span>*</span></label>
-	                                    <input type="text">
-	                                </div>
-	                                <div class="form_group">
-	                                    <label>Password  <span>*</span></label>
-	                                    <input type="text">
-	                                </div>
-	                                <div class="form_group group_3 ">
-	                                    <button type="submit">Login</button>
-	                                    <label for="remember_box">
-	                                        <input id="remember_box" type="checkbox">
-	                                        <span> Remember me </span>
-	                                    </label>
-	                                </div>
-	                                <a href="#">Lost your password?</a>
-	                            </form>
+	                           <?php
+
+								woocommerce_login_form(
+									array(
+										'message'  => __( 'If you have shopped with us before, please enter your details below. If you are a new customer, please proceed to the Billing &amp; Shipping section.', 'woocommerce' ),
+										'redirect' => wc_get_page_permalink( 'checkout' ),
+										'hidden'   => true,
+									)
+								);
+								?>
 	                        </div>
 	                    </div>
 	                </div>
+	            </div>
+	        	<?php endif; ?>
+	            <div class="<?php if (!is_user_logged_in()) { echo'col-6';} else { echo 'col-12';} ?>">
 	                <div class="user-actions">
 	                    <h3>
 	                        <i class="fa fa-file-o" aria-hidden="true"></i>
-	                        Returning customer?
+	                        Have a coupon code?
 	                        <a class="Returning" href="#" data-toggle="collapse" data-target="#checkout_coupon" aria-expanded="true">Click here to enter your code</a>
 
 	                    </h3>
 	                     <div id="checkout_coupon" class="collapse" data-parent="#accordion">
 	                        <div class="checkout_info">
-	                            <form action="#">
-	                                <input placeholder="Coupon code" type="text">
-	                                <button type="submit">Apply coupon</button>
+	                            <form method="post">
+	                                <input type="text" name="coupon_code" class="input-text" placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>" id="coupon_code" value="" />
+	                                <button type="submit" class="button" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>"><?php esc_html_e( 'Apply coupon', 'woocommerce' ); ?></button>
 	                            </form>
 	                        </div>
 	                    </div>

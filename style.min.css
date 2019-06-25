@@ -1238,6 +1238,10 @@ p.stars.selected a:not(.active):before{content:"\53";color:royalblue;opacity:1}
 .shipping-calculator-form p span{margin-right:0}
 .enter-address p{width:100%}
 .enter-address p a{text-align:left}
+.woocommerce-shipping-methods li{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.woocommerce-shipping-methods li label{margin-bottom:0}
+.checkout_form .woocommerce-shipping-methods li input{width:auto}
+.checkout_form .woocommerce-shipping-methods li label{margin-left:10px}
 .shipping_address{width:100%}
 .woocommerce-shipping-fields__field-wrapper{margin-top:20px}
 .order-notes{margin-top:20px}
@@ -1246,6 +1250,7 @@ p.stars.selected a:not(.active):before{content:"\53";color:royalblue;opacity:1}
 .order-notes textarea{height:100px}
 .order_table .cart_item{display:table-row;width:100%;overflow:auto}
 .order_table .cart_item td{width:50%}
+.wc_payment_method{margin-bottom:1em}
 .address-form .woocommerce-input-wrapper{width:100%;display:block}
 .address-form input{border:1px solid #f0f0f0;background:0;height:40px;width:100%;padding:0 20px;color:#757575}
 .ymm-garage{margin-bottom:20px}
