@@ -4,7 +4,7 @@ Theme URI: http://underscores.me/
 Author: Tim Loden
 Author URI: http://underscores.me/
 Description: Custom theme: Dynacorn Parts, developed by Tim Loden
-Version: 0.0.1
+Version: 0.0.2
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: dynacornparts
@@ -162,6 +162,8 @@ body.page-template-page-home header .header_b_three{margin-bottom:0}
 .mini_cart_wrapper>a span{font-size:32px;padding-right:5px}
 .mini_cart_wrapper:hover .mini_cart{opacity:1;visibility:visible;top:135%}
 .mini_cart{position:absolute;min-width:355px;padding:18px 28px 33px;background:#fff;-webkit-box-shadow:0 0 7px 0 rgba(0,0,0,0.15);box-shadow:0 0 7px 0 rgba(0,0,0,0.15);border:1px solid #f0f0f0;z-index:999;right:0;top:150%;opacity:0;visibility:hidden;-webkit-transition:.3s;transition:.3s}
+.mobile-mini-cart span.cart_quantity{background:#005ca9;color:#fff}
+.mobile-mini-cart .mini_cart{display:block;min-width:auto;right:0;top:0;position:relative;-webkit-box-shadow:none;box-shadow:none}
 .cart_img{width:32%;margin-right:10px}
 .cart_info{width:100%}
 .cart_info a{font-weight:400;color:#3e444a;text-transform:capitalize;font-size:14px;line-height:20px;display:block;margin-bottom:6px}
@@ -1289,7 +1291,9 @@ ul.products li.product.last{margin-right:0}
 .sticky-header.sticky{position:inherit;-webkit-box-shadow:inherit;box-shadow:inherit;-webkit-animation-name:inherit;animation-name:inherit;padding:0;background:inherit;opacity:inherit}
 .header_top{display:none}
 .header_middle{padding:21px 0}
-.search-container{display:none}
+.search-container .ymm-extra{width:100%;margin-top:10px}
+.search-container .ymm-extra .search_box{width:100%;margin-left:0}
+.middel_right_info{display:none}
 .header_wishlist{margin-right:15px}
 .header_wishlist a span{font-size:27px;padding-right:3px}
 .mini_cart_wrapper>a span{font-size:27px;padding-right:2px}
@@ -1503,9 +1507,11 @@ ul.products li.product.last{margin-right:0}
 .logo a img{max-width:135px}
 .header_middle{padding:22px 0 20px}
 .middel_right{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}
-.search-container{display:none}
+.search-container .ymm-extra{width:100%;margin-top:10px}
+.search-container .ymm-extra .search_box{width:100%;margin-left:0}
 .search_box input{height:40px;padding:0 100px 0 20px}
 .search_box button{padding:0 20px;border-radius:0 3px 3px 0}
+.middel_right_info{display:none}
 .mini_cart{min-width:285px;right:-42px;display:none;opacity:inherit;visibility:inherit;top:135%;-webkit-transition:unset;transition:unset}
 .header_bottom{margin-bottom:0;-webkit-box-shadow:none;box-shadow:none}
 .main_menu{display:none}

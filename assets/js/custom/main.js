@@ -635,5 +635,6 @@
     /*--- Clickable menu active ----*/
     const slinky = $('#menu').slinky()
 
+    const slinky2 = $('#menu-2').slinky()
 
 })(jQuery);

@@ -73,17 +73,8 @@
 	            </div>
 	            <div class="col-lg-9 col-md-9">
 	                <div class="middel_right">
-<!-- 	                	<div class="ymm-title">
-
-	                	</div> -->
 	                    <div class="search-container search_two">
-	                       <!-- <form action="#">
-	                            <div class="search_box">
-	                                <input placeholder="Search entire store here ..." type="text">
-	                                <button type="submit"><i class="ion-ios-search-strong"></i></button>
-	                            </div>
-	                        </form> -->
-	                        <?php //echo do_shortcode( '[wcas-search-form]' ); ?>
+
 	                        <?php echo do_shortcode('[ymm_selector template="horizontal_selector.php"]'); ?>
 	                    </div>
 	                    <div class="middel_right_info">
@@ -248,20 +239,19 @@
                           <a href="#"><i class="ion-android-close"></i></a>
                     </div>
 
-
+<!--
                     <div class="top_right text-right">
                         <ul>
-                           <li class="top_links"><a href="#"><i class="ion-android-person"></i> My Account<i class="ion-ios-arrow-down"></i></a>
+                           <li class="top_links"><a href="/my-account"><i class="ion-android-person"></i> My Account<i class="ion-ios-arrow-down"></i></a>
                                 <ul class="dropdown_links">
-                                    <li><a href="checkout.html">Checkout </a></li>
-                                    <li><a href="my-account.html">My Account </a></li>
-                                    <li><a href="cart.html">Shopping Cart</a></li>
-                                    <li><a href="wishlist.html">Wishlist</a></li>
+                                    <li><a href="/checkout">Checkout </a></li>
+                                    <li><a href="/my-account">My Account </a></li>
+                                    <li><a href="/cart">Cart</a></li>
                                 </ul>
                             </li>
                         </ul>
-                    </div>
-                    <div class="Offcanvas_follow">
+                    </div> -->
+<!--                     <div class="Offcanvas_follow">
                         <label>Follow Us:</label>
                         <ul class="follow_link">
                             <li><a href="#"><i class="ion-social-facebook"></i></a></li>
@@ -270,10 +260,7 @@
                             <li><a href="#"><i class="ion-social-youtube"></i></a></li>
                         </ul>
                     </div>
-                    <div class="search-container">
-                       <?php echo do_shortcode('[ymm_selector template="selector.php"]'); ?>
-                    </div>
-                    <div id="menu" class="text-left ">
+ -->                <div id="menu" class="text-left ">
                         <?php
 						wp_nav_menu( array(
 							'theme_location' => 'menu-1',
@@ -282,6 +269,58 @@
 						) );
 						?>
                     </div>
+                    <div class="mini_cart_wrapper mobile-mini-cart">
+                        <a href="<?php echo site_url(); ?>/cart"><span class="lnr lnr-cart"></span></a>
+
+						<?php if ($cart_count != 0) : ?>
+
+                        <span class="cart_quantity"><?php echo esc_attr($cart_count); ?></span>
+
+                        <div class="mini_cart">
+						<?php foreach ( WC()->cart->get_cart() as $cart_item ) {
+							$item_name = $cart_item['data']->get_title();
+							$quantity = $cart_item['quantity'];
+							$sku = $cart_item['data']->get_sku();
+							$cart_item_link = get_permalink( $cart_item['data']->get_id() );
+						?>
+
+							<div class="cart_item">
+                                <div class="cart_info">
+                                    <a href="<?php echo esc_url($cart_item_link); ?> "><?php echo esc_attr($item_name); ?> | <?php echo esc_attr($sku); ?></a>
+                                    <span class="quantity">Qty: <?php echo esc_attr($quantity); ?></span>
+                                </div>
+                            </div>
+
+						<?php } ?>
+
+
+                            <div class="mini_cart_table">
+                                <div class="cart_total">
+                                    <span>Sub total:</span>
+                                    <span class="price"><?php echo esc_attr($cart_total); ?></span>
+                                </div>
+                            </div>
+
+                            <div class="mini_cart_footer">
+                               <div class="cart_button">
+                                    <a href="<?php echo site_url(); ?>/cart">View cart</a>
+                                </div>
+                                <div class="cart_button">
+                                    <a href="<?php echo site_url(); ?>/checkout">Checkout</a>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <?php else : ?>
+
+                        	<p>You dont have any items in your cart</p>
+
+                        <?php endif; ?>
+
+                    </div>
+
                 </div>
             </div>
         </div>

@@ -42,7 +42,7 @@ $review_count = $product->get_review_count();
 	    	<?php endif; ?>
 	        <div class="action_links">
 	            <ul>
-	                <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
+	               <!--  <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li> -->
 	              <!--   <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>
 	                <li class="compare"><a href="#" title="compare"><span class="lnr lnr-sync"></span></a></li> -->
 	            </ul>
@@ -62,7 +62,7 @@ $review_count = $product->get_review_count();
 
 	            <div class="product_footer d-flex align-items-center">
 	                <div class="price_box">
-	                    <span class="current_price"><?php echo $product->get_price(); ?> | <?php echo $product->get_sku(); ?></span>
+	                    <span class="current_price">$<?php echo $product->get_price(); ?> | <?php echo $product->get_sku(); ?></span>
 	                    <span class="old_price"><?php $product->get_regular_price(); ?></span>
 	                </div>
 	                <div class="add_to_cart">
@@ -100,7 +100,7 @@ $review_count = $product->get_review_count();
 	            </div>
 	            <div class="action_links_btn">
 	                <ul>
-	                    <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
+	                   <!--  <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li> -->
 	                  <!--   <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>
 	                    <li class="compare"><a href="#" title="compare"><span class="lnr lnr-sync"></span></a></li> -->
 	                </ul>

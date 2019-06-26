@@ -516,4 +516,5 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   /*--- Clickable menu active ----*/
 
   var slinky = $('#menu').slinky();
+  var slinky2 = $('#menu-2').slinky();
 })(jQuery);
