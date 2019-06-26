@@ -1253,6 +1253,7 @@ p.stars.selected a:not(.active):before{content:"\53";color:royalblue;opacity:1}
 .wc_payment_method{margin-bottom:1em}
 .address-form .woocommerce-input-wrapper{width:100%;display:block}
 .address-form input{border:1px solid #f0f0f0;background:0;height:40px;width:100%;padding:0 20px;color:#757575}
+.table-responsive table tbody tr td:last-child a.button{color:#fff}
 .ymm-garage{margin-bottom:20px}
 .ymm-selector.ymm-horizontal{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
 .ymm-selector.ymm-horizontal .ymm-title{margin-right:10px}

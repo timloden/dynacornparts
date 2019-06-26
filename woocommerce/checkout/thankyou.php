@@ -20,62 +20,79 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<div class="woocommerce-order">
+<?php if ( $order ) : ?>
 
-	<?php if ( $order ) : ?>
 
-		<?php if ( $order->has_status( 'failed' ) ) : ?>
+	<?php if ( $order->has_status( 'failed' ) ) : ?>
 
-			<p class="woocommerce-notice woocommerce-notice--error woocommerce-thankyou-order-failed"><?php _e( 'Unfortunately your order cannot be processed as the originating bank/merchant has declined your transaction. Please attempt your purchase again.', 'woocommerce' ); ?></p>
+		<p class="woocommerce-notice woocommerce-notice--error woocommerce-thankyou-order-failed"><?php _e( 'Unfortunately your order cannot be processed as the originating bank/merchant has declined your transaction. Please attempt your purchase again.', 'woocommerce' ); ?></p>
 
-			<p class="woocommerce-notice woocommerce-notice--error woocommerce-thankyou-order-failed-actions">
-				<a href="<?php echo esc_url( $order->get_checkout_payment_url() ); ?>" class="button pay"><?php _e( 'Pay', 'woocommerce' ) ?></a>
-				<?php if ( is_user_logged_in() ) : ?>
-					<a href="<?php echo esc_url( wc_get_page_permalink( 'myaccount' ) ); ?>" class="button pay"><?php _e( 'My account', 'woocommerce' ); ?></a>
-				<?php endif; ?>
-			</p>
+		<p class="woocommerce-notice woocommerce-notice--error woocommerce-thankyou-order-failed-actions">
+			<a href="<?php echo esc_url( $order->get_checkout_payment_url() ); ?>" class="button pay"><?php _e( 'Pay', 'woocommerce' ) ?></a>
+			<?php if ( is_user_logged_in() ) : ?>
+				<a href="<?php echo esc_url( wc_get_page_permalink( 'myaccount' ) ); ?>" class="button pay"><?php _e( 'My account', 'woocommerce' ); ?></a>
+			<?php endif; ?>
+		</p>
 
-		<?php else : ?>
+	<?php else : ?>
 
-			<p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Thank you. Your order has been received.', 'woocommerce' ), $order ); ?></p>
 
-			<ul class="woocommerce-order-overview woocommerce-thankyou-order-details order_details">
+	<h1 class="text-center woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Thank you. Your order has been received.', 'woocommerce' ), $order ); ?></h1>
 
-				<li class="woocommerce-order-overview__order order">
-					<?php _e( 'Order number:', 'woocommerce' ); ?>
-					<strong><?php echo $order->get_order_number(); ?></strong>
-				</li>
 
-				<li class="woocommerce-order-overview__date date">
-					<?php _e( 'Date:', 'woocommerce' ); ?>
-					<strong><?php echo wc_format_datetime( $order->get_date_created() ); ?></strong>
-				</li>
+    <div class="Checkout_section mt-32">
+       <div class="container">
+            <div class="checkout_form">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4">
+						<h3>Order Details</h3>
+                    	<ul class="woocommerce-order-overview woocommerce-thankyou-order-details order_details">
 
-				<?php if ( is_user_logged_in() && $order->get_user_id() === get_current_user_id() && $order->get_billing_email() ) : ?>
-					<li class="woocommerce-order-overview__email email">
-						<?php _e( 'Email:', 'woocommerce' ); ?>
-						<strong><?php echo $order->get_billing_email(); ?></strong>
-					</li>
-				<?php endif; ?>
+							<li class="woocommerce-order-overview__order order">
+								<?php _e( 'Order number:', 'woocommerce' ); ?>
+								<strong><?php echo $order->get_order_number(); ?></strong>
+							</li>
 
-				<li class="woocommerce-order-overview__total total">
-					<?php _e( 'Total:', 'woocommerce' ); ?>
-					<strong><?php echo $order->get_formatted_order_total(); ?></strong>
-				</li>
+							<li class="woocommerce-order-overview__date date">
+								<?php _e( 'Date:', 'woocommerce' ); ?>
+								<strong><?php echo wc_format_datetime( $order->get_date_created() ); ?></strong>
+							</li>
 
-				<?php if ( $order->get_payment_method_title() ) : ?>
-					<li class="woocommerce-order-overview__payment-method method">
-						<?php _e( 'Payment method:', 'woocommerce' ); ?>
-						<strong><?php echo wp_kses_post( $order->get_payment_method_title() ); ?></strong>
-					</li>
-				<?php endif; ?>
+							<?php if ( is_user_logged_in() && $order->get_user_id() === get_current_user_id() && $order->get_billing_email() ) : ?>
+								<li class="woocommerce-order-overview__email email">
+									<?php _e( 'Email:', 'woocommerce' ); ?>
+									<strong><?php echo $order->get_billing_email(); ?></strong>
+								</li>
+							<?php endif; ?>
 
-			</ul>
+							<li class="woocommerce-order-overview__total total">
+								<?php _e( 'Total:', 'woocommerce' ); ?>
+								<strong><?php echo $order->get_formatted_order_total(); ?></strong>
+							</li>
 
-		<?php endif; ?>
+							<?php if ( $order->get_payment_method_title() ) : ?>
+								<li class="woocommerce-order-overview__payment-method method">
+									<?php _e( 'Payment method:', 'woocommerce' ); ?>
+									<strong><?php echo wp_kses_post( $order->get_payment_method_title() ); ?></strong>
+								</li>
+							<?php endif; ?>
 
-		<?php do_action( 'woocommerce_thankyou_' . $order->get_payment_method(), $order->get_id() ); ?>
-		<?php do_action( 'woocommerce_thankyou', $order->get_id() ); ?>
+							<?php do_action( 'woocommerce_thankyou_' . $order->get_payment_method(), $order->get_id() ); ?>
+
+						</ul>
+
+                    </div>
+
+					<?php do_action( 'woocommerce_thankyou', $order->get_id() ); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+	<?php endif; ?>
+
+
 
 	<?php else : ?>
 
@@ -83,4 +100,3 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<?php endif; ?>
 
-</div>
