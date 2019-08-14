@@ -59,7 +59,7 @@ get_header();
 <!--slider area end-->
 
 <!--shipping area start-->
-<section class="shipping_area mb-50">
+<!-- <section class="shipping_area mb-50">
     <div class="container">
         <div class=" row">
            <div class="col-12">
@@ -104,7 +104,7 @@ get_header();
            </div>
         </div>
     </div>
-</section>
+</section> -->
 <!--shipping area end-->
 
 <?php //echo do_shortcode( '[featured_products per_page="12" columns="4"]' ); ?>
