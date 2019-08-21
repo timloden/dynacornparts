@@ -56,14 +56,17 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 												<td class="product_remove">
 													<?php
-														// @codingStandardsIgnoreLine
-														echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf(
-															'<a href="%s" class="remove" aria-label="%s" data-product_id="%s" data-product_sku="%s"><i class="fa fa-trash-o"></i></a>',
-															esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
-															__( 'Remove this item', 'woocommerce' ),
-															esc_attr( $product_id ),
-															esc_attr( $_product->get_sku() )
-														), $cart_item_key );
+														echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+															'woocommerce_cart_item_remove_link',
+															sprintf(
+																'<a href="%s" class="remove" aria-label="%s" data-product_id="%s" data-product_sku="%s">&times;</a>',
+																esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
+																esc_html__( 'Remove this item', 'woocommerce' ),
+																esc_attr( $product_id ),
+																esc_attr( $_product->get_sku() )
+															),
+															$cart_item_key
+														);
 													?>
 												</td>
 
@@ -110,13 +113,17 @@ do_action( 'woocommerce_before_cart' ); ?>
 													if ( $_product->is_sold_individually() ) {
 														$product_quantity = sprintf( '1 <input type="hidden" name="cart[%s][qty]" value="1" />', $cart_item_key );
 													} else {
-														$product_quantity = woocommerce_quantity_input( array(
-															'input_name'   => "cart[{$cart_item_key}][qty]",
-															'input_value'  => $cart_item['quantity'],
-															'max_value'    => $_product->get_max_purchase_quantity(),
-															'min_value'    => '0',
-															'product_name' => $_product->get_name(),
-														), $_product, false );
+														$product_quantity = woocommerce_quantity_input(
+															array(
+																'input_name'   => "cart[{$cart_item_key}][qty]",
+																'input_value'  => $cart_item['quantity'],
+																'max_value'    => $_product->get_max_purchase_quantity(),
+																'min_value'    => '0',
+																'product_name' => $_product->get_name(),
+															),
+															$_product,
+															false
+														);
 													}
 
 													echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item ); // PHPCS: XSS ok.

@@ -14,7 +14,7 @@
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce/Templates
- * @version 3.5.0
+ * @version 3.7.0
  */
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -67,11 +67,22 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 		?>
 	</ul>
 
-	<p class="woocommerce-mini-cart__total total"><strong><?php _e( 'Subtotal', 'woocommerce' ); ?>:</strong> <?php echo WC()->cart->get_cart_subtotal(); ?></p>
+	<p class="woocommerce-mini-cart__total total">
+		<?php
+		/**
+		 * Woocommerce_widget_shopping_cart_total hook.
+		 *
+		 * @hooked woocommerce_widget_shopping_cart_subtotal - 10
+		 */
+		do_action( 'woocommerce_widget_shopping_cart_total' );
+		?>
+	</p>
 
 	<?php do_action( 'woocommerce_widget_shopping_cart_before_buttons' ); ?>
 
 	<p class="woocommerce-mini-cart__buttons buttons"><?php do_action( 'woocommerce_widget_shopping_cart_buttons' ); ?></p>
+
+	<?php do_action( 'woocommerce_widget_shopping_cart_after_buttons' ); ?>
 
 <?php else : ?>
 
