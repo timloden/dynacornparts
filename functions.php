@@ -173,3 +173,18 @@ add_action('after_setup_theme', 'dynacornparts_woocommerce_setup');
  * @link https://docs.woocommerce.com/document/disable-the-default-stylesheet/
  */
 add_filter('woocommerce_enqueue_styles', '__return_empty_array');
+
+
+/* ACF options page
+--------------------------------------------------------------------------------------*/
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page(array(
+		'page_title' 	=> 'Site Settings',
+		'menu_title'	=> 'Site Settings',
+		'menu_slug' 	=> 'site-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+	
+}
