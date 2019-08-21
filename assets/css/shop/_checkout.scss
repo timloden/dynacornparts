@@ -57,3 +57,11 @@
 .wc_payment_method {
 	margin-bottom: 1em;
 }
+
+#ph_billing_is_residential_field, .shipping-address-checkbox, #ph_shipping_is_residential_field {
+	display: none;
+}
+
+#order_review_heading {
+	margin-bottom: 0;
+}

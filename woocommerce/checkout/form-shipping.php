@@ -25,7 +25,7 @@ defined( 'ABSPATH' ) || exit;
 <div class="row woocommerce-shipping-fields">
 
 	<div class="col-12 mb-20">
-        <input id="address" type="checkbox" data-target="createp_account" />
+        <input class="shipping-address-checkbox" id="address" type="checkbox" data-target="createp_account" />
         <label class="righ_0" for="address" data-toggle="collapse" data-target="#collapsetwo" aria-controls="collapseOne">Ship to a different address?</label>
 
 		<div id="collapsetwo" class="collapse one" data-parent="#accordion">
