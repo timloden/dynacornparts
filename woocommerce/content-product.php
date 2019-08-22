@@ -108,7 +108,7 @@ $review_count = $product->get_review_count();
 	        </div>
 	    </div>
 	</div>
-	</div>
+</div>
 
 	<?php
 	/**
