@@ -9,6 +9,12 @@
  * @package Dynacorn_Parts
  */
 
+
+$logo = get_field('store_logo', 'option');
+$tagline = get_field('tag_line', 'option');
+$address = get_field('address', 'option');
+$phone = get_field('phone_number', 'option');
+$store_name = get_field('store_name', 'option');
 ?>
 
 <!--footer area start-->
@@ -19,12 +25,12 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="widgets_container contact_us">
                         <div class="footer_logo">
-                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/dynacorn-parts-temp-logo.png" alt=""></a>
+                            <a href="<?php echo site_url(); ?>"><img src="<?php echo esc_url($logo['url']); ?>" alt=""></a>
                         </div>
                         <div class="footer_contact">
-                            <p>Premium quality GM, Ford and Mopar restoration parts</p>
-                            <p><span>Address</span> 4710-4890 Breckinridge St, UK Burlington, VT 05401</p>
-                            <p><span>Need Help?</span>Call: 1-800-345-6789</p>
+                            <p><?php echo esc_attr($tagline); ?></p>
+                            <p><span>Address</span> <?php echo esc_attr($address); ?></p>
+                            <p><span>Need Help?</span>Call: <?php echo esc_attr($phone); ?></p>
                         </div>
                     </div>
                 </div>
@@ -76,12 +82,12 @@
            <div class="row">
                 <div class="col-lg-6 col-md-6">
                     <div class="copyright_area">
-                        <p>Copyright &copy; 2019 <a href="#">Dynacoarnparts.com</a>  All Right Reserved.</p>
+                        <p>Copyright &copy; <?php echo date("Y"); ?> <a href="<?php echo site_url(); ?>"><?php echo esc_attr($store_name); ?></a>.  All Right Reserved.</p>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="footer_payment text-right">
-                        <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/payment.png" alt=""></a>
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/payment.png" alt="">
                     </div>
                 </div>
             </div>

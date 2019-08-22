@@ -9,6 +9,7 @@
  * @package Dynacorn_Parts
  */
 
+$logo = get_field('store_logo', 'option');
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -22,6 +23,11 @@
 	<?php
 	$cart_count = WC()->cart->get_cart_contents_count();
 	$cart_total = WC()->cart->get_cart_contents_total();
+	$logo = get_field('store_logo', 'option');
+	$facebook = get_field('facebook_url', 'option');
+	$twitter = get_field('twitter_url', 'option');
+	$youtube = get_field('youtube_url', 'option');
+	$instagram = get_field('instagram_url', 'option');
 	?>
 </head>
 
@@ -37,10 +43,10 @@
 	                <div class="follow_us">
 	                    <label>Follow Us:</label>
 	                    <ul class="follow_link">
-	                        <li><a href="#"><i class="ion-social-facebook"></i></a></li>
-	                        <li><a href="#"><i class="ion-social-twitter"></i></a></li>
-	                        <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
-	                        <li><a href="#"><i class="ion-social-youtube"></i></a></li>
+							<?php if($facebook) :?><li><a href="<?php echo esc_url($facebook); ?>"><i class="ion-social-facebook"></i></a></li><?php endif; ?> 
+	                        <?php if($twitter) :?><li><a href="<?php echo esc_url($twitter); ?>"><i class="ion-social-twitter"></i></a></li><?php endif; ?> 
+	                        <?php if($instagram) :?><li><a href="<?php echo esc_url($instagram); ?>"><i class="ion-social-instagram"></i></a></li><?php endif; ?> 
+	                        <?php if($youtube) :?><li><a href="#<?php echo esc_url($youtube); ?>"><i class="ion-social-youtube"></i></a></li><?php endif; ?> 
 	                    </ul>
 	                </div>
 	            </div>
@@ -68,7 +74,7 @@
 	        <div class="row align-items-center">
 	            <div class="col-lg-3 col-md-3">
 	                <div class="logo">
-	                    <a href="<?php echo site_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/dynacorn-parts-temp-logo.png" alt=""></a>
+	                    <a href="<?php echo site_url(); ?>"><img src="<?php echo esc_url($logo['url']); ?>" alt=""></a>
 	                </div>
 	            </div>
 	            <div class="col-lg-9 col-md-9">
