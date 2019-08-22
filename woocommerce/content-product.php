@@ -34,7 +34,7 @@ $review_count = $product->get_review_count();
 	        <h3><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h3>
 	    </div>
 	    <div class="product_thumb">
-	        <a class="primary_img" href="<?php get_permalink(); ?>"><?php echo $product->get_image(); ?></a>
+	        <a class="primary_img" href="<?php echo get_permalink(); ?>"><?php echo $product->get_image(); ?></a>
 	        <?php if ( $product->is_on_sale() ) : ?>
 		        <div class="label_product">
 		            <span class="label_sale">SALE</span>
