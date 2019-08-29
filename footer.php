@@ -36,7 +36,7 @@ $store_name = get_field('store_name', 'option');
                 </div>
                 <div class="col-lg-2 col-md-6">
                     <div class="widgets_container widget_menu">
-                        <h3>Information</h3>
+                        <!-- <h3>Information</h3>
                         <div class="footer_menu">
                             <ul>
                                 <li><a href="#">About Us</a></li>
@@ -46,12 +46,12 @@ $store_name = get_field('store_name', 'option');
                                 <li><a href="#">Returns</a></li>
                                 <li><a href="#">Gift Certificates</a></li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-6">
                     <div class="widgets_container widget_menu">
-                        <h3>Extras</h3>
+                        <!-- <h3>Extras</h3>
                         <div class="footer_menu">
                             <ul>
                                 <li><a href="#">Returns</a></li>
@@ -61,7 +61,7 @@ $store_name = get_field('store_name', 'option');
                                 <li><a href="#">Affiliate</a></li>
                                 <li><a href="faq.html">Specials</a></li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
