@@ -15,6 +15,17 @@ $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
     'dynacornparts'
 );
 
+//$myUpdateChecker->setBranch('stable-branch-name');
+
+$domain = explode('.', $_SERVER['HTTP_HOST']);
+//echo $domain[1];
+
+// if ($domain[1] === 'local') {
+//     $myUpdateChecker->setBranch('dev');
+// } elseif ($domain[1] === 'stage') {
+//     $myUpdateChecker->setBranch('staging');
+// }
+
 if (! function_exists('dynacornparts_setup') ) :
     /**
      * Sets up theme defaults and registers support for various WordPress features.
