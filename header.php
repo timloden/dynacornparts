@@ -45,10 +45,11 @@ $analytics = get_field('analytics_code', 'option');
                 <div class="row align-items-center">
                 <div class="col-lg-6 col-md-6">
                     <div class="follow_us">
+                        <?php if($facebook || $twitter || $instagram || $youtube) :?>
                         <label>Follow Us:</label>
                         <ul class="follow_link">
-        <?php if($facebook) :?><li><a href="<?php echo esc_url($facebook); ?>"><i class="ion-social-facebook"></i></a></li><?php 
-        endif; ?> 
+                            <?php if($facebook) :?><li><a href="<?php echo esc_url($facebook); ?>"><i class="ion-social-facebook"></i></a></li><?php 
+                            endif; ?> 
                             <?php if($twitter) :?><li><a href="<?php echo esc_url($twitter); ?>"><i class="ion-social-twitter"></i></a></li><?php 
                             endif; ?> 
                             <?php if($instagram) :?><li><a href="<?php echo esc_url($instagram); ?>"><i class="ion-social-instagram"></i></a></li><?php 
@@ -56,6 +57,7 @@ $analytics = get_field('analytics_code', 'option');
                             <?php if($youtube) :?><li><a href="#<?php echo esc_url($youtube); ?>"><i class="ion-social-youtube"></i></a></li><?php 
                             endif; ?> 
                         </ul>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
