@@ -7,8 +7,7 @@ add_action('login_enqueue_scripts', 'custom_login_logo');
 
 function custom_login_logo()
 {
-    $general_settings = get_field('general_settings', 'option');
-    $logo = $general_settings['organization_logo'];
+    $logo = get_field('store_logo', 'option');
     ?>
 
     <style type="text/css">
