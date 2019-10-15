@@ -65,3 +65,33 @@
 #order_review_heading {
 	margin-bottom: 0;
 }
+
+.woocommerce-account-fields {
+	width: 100%;
+}
+
+.payment_method_paypal .about_paypal {
+	display: none;
+}
+
+.payment_method_paypal img, .payment_method_paypal_pro_payflow img {
+	padding-left: 15px;
+}
+
+.woocommerce-billing-fields__field-wrapper, .woocommerce-shipping-fields__field-wrapper {
+
+	.form-row {
+		label {
+			display: block;
+			width: 100%;
+		}
+
+		.woocommerce-input-wrapper {
+			width: 100%;
+
+			.input-text {
+				padding: 0 10px;
+			}
+		}
+	}
+}

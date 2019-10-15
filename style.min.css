@@ -1255,6 +1255,12 @@ p.stars.selected a:not(.active):before{content:"\53";color:royalblue;opacity:1}
 .wc_payment_method{margin-bottom:1em}
 #ph_billing_is_residential_field,.shipping-address-checkbox,#ph_shipping_is_residential_field{display:none}
 #order_review_heading{margin-bottom:0}
+.woocommerce-account-fields{width:100%}
+.payment_method_paypal .about_paypal{display:none}
+.payment_method_paypal img,.payment_method_paypal_pro_payflow img{padding-left:15px}
+.woocommerce-billing-fields__field-wrapper .form-row label,.woocommerce-shipping-fields__field-wrapper .form-row label{display:block;width:100%}
+.woocommerce-billing-fields__field-wrapper .form-row .woocommerce-input-wrapper,.woocommerce-shipping-fields__field-wrapper .form-row .woocommerce-input-wrapper{width:100%}
+.woocommerce-billing-fields__field-wrapper .form-row .woocommerce-input-wrapper .input-text,.woocommerce-shipping-fields__field-wrapper .form-row .woocommerce-input-wrapper .input-text{padding:0 10px}
 .address-form .woocommerce-input-wrapper{width:100%;display:block}
 .address-form input{border:1px solid #f0f0f0;background:0;height:40px;width:100%;padding:0 20px;color:#757575}
 .table-responsive table tbody tr td:last-child a.button{color:#fff}
